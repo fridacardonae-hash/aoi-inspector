@@ -1,4 +1,4 @@
-# aoi-inspector
+# AOI Inspector - Anomalib 
 
 Main issue was current AOI in production line can’t detect an specific failure mode due to the variability on the position and the size of the failure.
 Main branch is dedicated for the UI implemented to obtain the inference of different pictures saved in a specific folder path with a custom trained nomalib model (pipeline used is in the modeltrain branch).
