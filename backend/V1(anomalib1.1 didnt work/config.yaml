@@ -1,0 +1,63 @@
+#config.yaml
+model:
+  name: Patchcore
+  backbone: wide_resnet50_2 #mas preciso
+  layers:
+    - layer2
+    - layer3
+  coresnet_sampling_ratio: 0.1
+  num_neighbors: 9 
+
+metrics:
+  image:
+    - F1Score
+    - AUROC
+  pixel:
+    - F1Score
+    - AUROC
+
+dataset:
+  name: MVTec
+  format: folder
+  path: ./dataset_anomalib/Hole
+  normal_dir: train/good
+  abnormal_dir: test/defect
+  #task: segmentation
+  image_size: [224,224]
+
+  train_batch_size: 32
+  eval_batch_size: 32
+  num_workers: 8 
+
+  transform_config: 
+    train: null #sin augmentation por defecto
+    eval: null
+
+project:
+  seed: 42
+  path: ./results
+ 
+logging:
+  logger: []   #se puede agregar tensorboard, wandb, etc.
+  log_graph : false
+
+trainer:
+  accelerator: auto #para usar GPU automaticamente si esta disponible
+  devices: 1
+  default_root_dir: ./results
+  max_epochs: 1
+
+optimization:
+  export_mode: null #cambiar a "onnx" u "openvino" para produccion
+
+visualization:
+  show_images: true
+  save_images: true
+  log_images: true
+  image_save_path: .results/images
+  mode: full #para mostrar imagen orinial con heathmap y prediccion
+
+
+
+
+

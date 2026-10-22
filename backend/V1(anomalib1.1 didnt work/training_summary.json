@@ -1,0 +1,11 @@
+{
+  "total_components": 3,
+  "successful": 0,
+  "failed": [
+    "OrConn1",
+    "OrConn2",
+    "WConn"
+  ],
+  "results": [],
+  "timestamp": "2025-11-07T13:41:19.952580"
+}
